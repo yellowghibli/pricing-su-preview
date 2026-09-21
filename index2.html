@@ -93,6 +93,7 @@ gtag('config', 'G-S25JDJGG8D');
   --type-body-strong: 700 var(--body-size)/var(--body-leading) var(--font-family);
   --type-subtitle: 500 var(--subtitle-size)/var(--subtitle-leading) var(--font-family);
   --text-action: var(--surface-primary);
+  --illus-circle-col: clamp(96px, 10vw, 132px);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--space-8); }
@@ -109,7 +110,7 @@ a { color: inherit; text-decoration: none; }
 section { margin-bottom: var(--section-gap); }
 .section-title { text-align: left; max-width: 26ch; margin-bottom: var(--content-gap); }
 .section-title:has(+ .section-subtitle), .cta-final h2 { margin-bottom: var(--heading-gap); }
-.hero h1, .section-title, .cta-final h2, .pain-card h3, .aud-card h3, .feat-card h3, .term-card h4, .cons-item h4, .how-step h4, .clients-title, .client-card, details summary { text-wrap: balance; overflow-wrap: break-word; }
+.hero h1, .section-title, .cta-final h2, .pain-card h3, .ui-card h3, .feat-card h3, .term-card h4, .cons-item h4, .how-step h4, .clients-title, .client-card, details summary { text-wrap: balance; overflow-wrap: break-word; }
 .section-subtitle { color: var(--text-primary); text-align: left; max-width: 64ch; margin: 0 0 var(--content-gap); }
 .text-muted { color: var(--text-primary); }
 
@@ -118,7 +119,7 @@ body, button, input, select, textarea { font: var(--type-body); letter-spacing: 
 h1, h2, h3, h4, h5, h6 { font: inherit; }
 .hero h1 { font: var(--type-display); }
 .section-title, .cta-final h2, .metric-num, .calc-total .price, .tl-year, .how-num, .term-card h4 .term-code { font: var(--type-heading); }
-.pain-card h3, .aud-card h3, .feat-card h3, .term-card h4,
+.pain-card h3, .ui-card h3, .feat-card h3, .term-card h4,
 .cons-item h4, .how-step h4, .clients-title, .foot-brand,
 details summary, .gallery-caption, .platform-data-panel > h3, .hero-ticket .price-label,
 .calc-row .val { font: var(--type-title); }
@@ -134,8 +135,9 @@ small, .hero-badge, .hero-trust,
 .form-wrap input::placeholder { font: inherit; }
 
 /* Header and shared controls */
-header { position: sticky; top: 0; z-index: 100; background: var(--surface-page); transition: box-shadow .18s ease; }
-header.is-scrolled { box-shadow: 0 8px 28px rgb(23 35 70 / 8%); }
+header { position: sticky; top: 0; z-index: 100; background: var(--surface-page); box-shadow: none; transition: box-shadow .18s ease; }
+header.is-scrolled { box-shadow: 0 8px 28px rgb(23 35 70 / 8%); transform: translateZ(0); }
+.header-scroll-sentinel { height: 1px; pointer-events: none; visibility: hidden; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; padding-top: var(--space-2); padding-bottom: var(--space-2); gap: var(--space-2); }
 .logo { display: flex; align-items: center; }
 .header-contacts { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
@@ -177,14 +179,14 @@ header.is-scrolled { box-shadow: 0 8px 28px rgb(23 35 70 / 8%); }
 /* Cards and steps */
 .pain-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); }
 .audience-grid, .feat-grid, .clients-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
-.pain-card, .aud-card, .feat-card { border-radius: var(--radius-panel); padding: var(--card-padding); background: var(--surface-section); }
-.pain-card h3, .aud-card h3, .feat-card h3, .term-card h4 { margin-bottom: var(--space-2); }
-.pain-card p, .pain-card .now, .aud-card li, .feat-card p, .cons-item p, .how-step p, .term-card p { color: var(--text-primary); }
+.pain-card, .ui-card, .feat-card { border-radius: var(--radius-panel); padding: var(--card-padding); background: var(--surface-section); }
+.pain-card h3, .ui-card h3, .feat-card h3, .term-card h4 { margin-bottom: var(--space-2); }
+.pain-card p, .pain-card .now, .ui-card li, .feat-card p, .cons-item p, .how-step p, .term-card p { color: var(--text-primary); }
 .pain-card .now { margin-top: var(--space-2); padding-top: var(--space-2); }
 .pain-card .now strong { display: block; margin-bottom: var(--space-1); color: var(--text-primary); }
-.aud-card ul { list-style: none; margin-top: var(--space-2); }
-.aud-card li { position: relative; padding: var(--space-1) 0 var(--space-1) 32px; }
-.aud-card li::before {
+.ui-card ul { list-style: none; margin-top: var(--space-2); }
+.ui-card li { position: relative; padding: var(--space-1) 0 var(--space-1) 32px; }
+.ui-card li::before {
   content: "";
   position: absolute;
   top: 12px;
@@ -349,8 +351,8 @@ footer { padding: var(--space-5) 0 var(--space-3); border-top: 1px solid var(--b
 html { scrollbar-color: var(--surface-accent) var(--surface-page); }
 body { background: var(--surface-page); }
 input { caret-color: var(--surface-accent); }
-header { position: sticky; top: 0; z-index: 100; background: var(--surface-page); transition: box-shadow .18s ease; }
-header.is-scrolled { box-shadow: 0 8px 28px rgb(23 35 70 / 8%); }
+header { position: sticky; top: 0; z-index: 100; background: var(--surface-page); box-shadow: none; transition: box-shadow .18s ease; }
+header.is-scrolled { box-shadow: 0 8px 28px rgb(23 35 70 / 8%); transform: translateZ(0); }
 .header-inner { display: flex; justify-content: space-between; gap: 20px; padding: 24px 0; }
 .logo { font: var(--type-brand); letter-spacing: var(--tracking-brand); color: var(--surface-accent); }
 .header-contacts { gap: var(--space-5); flex-wrap: nowrap; }
@@ -436,11 +438,13 @@ section { padding: var(--block-pad-top) 0 var(--block-pad-bottom); margin: 0; }
   }
   .hero-grid > div:first-child { gap: 0 88px; align-items: center; }
   .hero h1 { max-width: none; font: 700 72px/76px var(--font-family); }
-  .hero .sub { max-width: 46ch; margin-top: 32px; }
+  .hero .sub { max-width: none; margin-top: 32px; }
   .hero-badges { max-width: 50ch; margin-top: 16px; }
   .hero-cta { margin-top: 40px; }
   .hero-cta .btn { min-width: 280px; padding: 14px 36px; }
-  .hero-screenshot-primary { transform: rotate(-2deg); }
+  .hero-media { min-height: 380px; padding-bottom: 32px; }
+  .hero-screenshot-primary { margin-left: 6%; width: 84%; transform: rotate(-2deg); }
+  .hero-screenshot-secondary { right: -6%; bottom: -12%; width: 88%; }
 }
 @media (min-width: 1200px) {
   .hero-grid > div:first-child {
@@ -451,6 +455,10 @@ section { padding: var(--block-pad-top) 0 var(--block-pad-bottom); margin: 0; }
   }
   .hero-copy { grid-column: 1 / span 5; }
   .hero-media { grid-column: 6 / span 7; }
+  @media (min-width: 1440px) {
+    .hero-copy { grid-column: 1 / span 6; }
+    .hero-media { grid-column: 7 / span 6; max-width: 100%; }
+  }
 
   #lead .lead-panel {
     --lead-col-gap: 24px;
@@ -504,17 +512,17 @@ section { padding: var(--block-pad-top) 0 var(--block-pad-bottom); margin: 0; }
 .pain-card p, .pain-card .now { font: var(--type-body); }
 .pain-card .now { color: var(--text-secondary); }
 .audience-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
-.aud-card, .aud-card:nth-child(2), .aud-card:nth-child(3) { padding: var(--card-padding); color: var(--text-primary); background: var(--surface-secondary); }
-:is(#audience, #consequences) .audience-grid > .aud-card {
+.ui-card, .ui-card:nth-child(2), .ui-card:nth-child(3) { padding: var(--card-padding); color: var(--text-primary); background: var(--surface-secondary); }
+:is(#audience, #consequences) .audience-grid > .ui-card {
   background-image: linear-gradient(102deg, var(--aud-tone-a) 0%, var(--aud-tone-b) 33.33%, var(--aud-tone-c) 66.66%, var(--aud-tone-d) 100%);
   background-size: 300% 100%;
   background-repeat: no-repeat;
 }
-:is(#audience, #consequences) .audience-grid > .aud-card:nth-child(1) { background-position: 0% 0; }
-:is(#audience, #consequences) .audience-grid > .aud-card:nth-child(2) { background-position: 50% 0; }
-:is(#audience, #consequences) .audience-grid > .aud-card:nth-child(3) { background-position: 100% 0; }
-.aud-card li { font: var(--type-body); }
-.aud-card :where(p,li) { color: var(--text-primary); }
+:is(#audience, #consequences) .audience-grid > .ui-card:nth-child(1) { background-position: 0% 0; }
+:is(#audience, #consequences) .audience-grid > .ui-card:nth-child(2) { background-position: 50% 0; }
+:is(#audience, #consequences) .audience-grid > .ui-card:nth-child(3) { background-position: 100% 0; }
+.ui-card li { font: var(--type-body); }
+.ui-card :where(p,li) { color: var(--text-primary); }
 .ui-badge {
   display: inline-flex;
   align-items: center;
@@ -535,13 +543,13 @@ section { padding: var(--block-pad-top) 0 var(--block-pad-bottom); margin: 0; }
 .ui-badge--tone-3 { background-image: linear-gradient(282deg, var(--badge-tone-d) 0%, var(--badge-tone-c) 100%); }
 .aud-role:not(.ui-badge) { font: var(--type-body); color: var(--text-secondary); letter-spacing: normal; }
 .aud-role { margin-bottom: 16px; }
-#audience .aud-card > p.text-muted {
+#audience .ui-card > p.text-muted {
   color: var(--text-secondary);
   margin-bottom: 16px;
 }
-#audience .aud-card ul { list-style: disc; padding-left: 1.15em; }
-#audience .aud-card li { padding: var(--space-1) 0; }
-#audience .aud-card li::before { content: none; }
+#audience .ui-card ul { list-style: disc; padding-left: 1.15em; }
+#audience .ui-card li { padding: var(--space-1) 0; }
+#audience .ui-card li::before { content: none; }
 .consequences { padding: var(--panel-padding-y) 0; margin-top: 0; background: var(--surface-accent); color: #fff; }
 .consequences > .container { display: block; }
 .consequences .section-title { max-width: 16ch; }
@@ -703,38 +711,58 @@ section .btn, .cta-actions .btn { min-height: 64px; padding: 12px 80px; font: va
 @media (min-width: 1440px) {
   #demo { padding: var(--panel-padding-y) 0; }
 }
-:is(.section-title, .cta-final h2, .pain-card h3, .aud-card h3, .feat-card h3, .term-card h4,
+:is(.section-title, .cta-final h2, .pain-card h3, .ui-card h3, .feat-card h3, .term-card h4,
 .cons-item h4, .how-step h4, .clients-title, details summary,
 .gallery-caption, .platform-data-panel > h3, .hero-ticket .price-label,
 .client-card > span:not(.client-logo-placeholder)) {
   letter-spacing: var(--tracking-accent);
 }
 #economy .about-text { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
-#economy .aud-card { height: 100%; background: #fff; }
-#economy .economy-card-head { display: grid; grid-template-columns: clamp(96px, 10vw, 132px) minmax(0, 1fr); gap: 16px; align-items: center; }
+#economy .ui-card { height: 100%; background: #fff; }
+#economy .economy-card-head { display: grid; grid-template-columns: var(--illus-circle-col) minmax(0, 1fr); gap: 16px; align-items: center; }
 #economy .economy-card-copy { grid-column: 2; grid-row: 1; min-width: 0; }
-#economy .economy-card-figure { display: block; grid-column: 1; grid-row: 1; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; border-radius: 50%; }
+:is(#economy .economy-card-figure-slot, #platforms .platform-data-figure-slot, #how .metrics-figure-slot) {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+:is(#economy .economy-card-figure, #platforms .platform-data-figure, #how .metrics-figure) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform-origin: center center;
+}
+#economy .ui-card:nth-child(1) .economy-card-figure { transform: scale(1.0492); }
+#economy .ui-card:nth-child(2) .economy-card-figure { transform: scale(1.0031); }
+#platforms .platform-data-group:nth-child(1) .platform-data-figure { transform: scale(1); }
+#platforms .platform-data-group:nth-child(2) .platform-data-figure { transform: scale(1.0641); }
+#platforms .platform-data-group:nth-child(3) .platform-data-figure { transform: scale(1.0692); }
+#how .metrics-figure { transform: scale(1.0458); }
 #economy .economy-card-head .metric-num { white-space: normal; }
-#economy .aud-card li {
+#economy .ui-card li {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   padding: var(--space-1) 0;
 }
-#economy .aud-card li::before { content: none; }
-#economy .aud-card li > span { flex: 1; min-width: 0; }
+#economy .ui-card li::before { content: none; }
+#economy .ui-card li > span { flex: 1; min-width: 0; }
 #economy .economy-list-icon { display: block; width: 32px; height: 32px; flex-shrink: 0; margin-top: calc((1lh - 32px) / 2); stroke-width: calc(1.5 * 52 / 32); }
-#economy .aud-card:first-child .economy-list-icon { color: var(--surface-primary); }
-#economy .aud-card:nth-child(2) .economy-list-icon { color: var(--surface-accent); }
+#economy .ui-card:first-child .economy-list-icon { color: var(--surface-primary); }
+#economy .ui-card:nth-child(2) .economy-list-icon { color: var(--surface-accent); }
 #economy .aud-role {
   margin-bottom: 16px;
   font: var(--type-title);
   letter-spacing: var(--tracking-accent);
 }
-#economy .aud-card:first-child .aud-role { color: var(--surface-primary); }
-#economy .aud-card:nth-child(2) .aud-role { color: var(--surface-accent); }
+#economy .ui-card:first-child .aud-role { color: var(--surface-primary); }
+#economy .ui-card:nth-child(2) .aud-role { color: var(--surface-accent); }
 #economy :where(.section-title, .metric-num, .cta-label) .price-suffix { font: var(--type-subtitle); letter-spacing: normal; display: inline; }
-#economy .aud-card li .price-suffix { font: inherit; letter-spacing: normal; }
+#economy .ui-card li .price-suffix { font: inherit; letter-spacing: normal; }
 .economy-saving { margin-top: 20px; padding: var(--card-padding); border-radius: var(--radius-panel); color: var(--text-inverse); background: var(--surface-primary); }
 .platform-showcase { margin-top: 48px; }
 .platform-logo-rail { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
@@ -745,8 +773,7 @@ section .btn, .cta-actions .btn { min-height: 64px; padding: 12px 80px; font: va
 .platform-data-panel { margin-top: 48px; padding: 40px 48px 44px; background: #fff; border-radius: var(--radius-panel); }
 .platform-data-panel > h3 { margin-bottom: 36px; text-align: left; }
 .platform-data-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-.platform-data-group { display: grid; grid-template-columns: clamp(96px, 10vw, 132px) minmax(0, 1fr); gap: 16px; align-items: start; text-align: left; }
-.platform-data-figure { display: block; grid-column: 1; grid-row: 1; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; }
+.platform-data-group { display: grid; grid-template-columns: var(--illus-circle-col) minmax(0, 1fr); gap: 16px; align-items: start; text-align: left; }
 .platform-data-copy { grid-column: 2; min-width: 0; }
 .platform-data-copy h3 { margin-bottom: 12px; }
 .platform-data-copy ul { padding-left: 0; list-style: none; color: var(--text-secondary); }
@@ -757,8 +784,12 @@ section .btn, .cta-actions .btn { min-height: 64px; padding: 12px 80px; font: va
 #consequences > .container { display: block; }
 #consequences .feature-heading { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 16px; align-items: center; margin-bottom: 16px; }
 #consequences .feature-heading h3 { text-wrap: pretty; hyphens: none; }
-@media (max-width: 1199px) {
-  #consequences .feature-title-analytics br { display: none; }
+#consequences .feature-title-analytics .feature-title-line { display: inline; }
+#consequences .feature-title-analytics .feature-title-line + .feature-title-line::before { content: " "; }
+@media (min-width: 1200px) {
+  #consequences .feature-title-analytics .feature-title-line { display: block; }
+  #consequences .feature-title-analytics .feature-title-line + .feature-title-line::before { content: none; }
+  #consequences .feature-heading { align-items: start; }
 }
 @media (min-width: 768px) and (max-width: 1439px) {
   #how .how-layout .how-grid {
@@ -780,14 +811,14 @@ section .btn, .cta-actions .btn { min-height: 64px; padding: 12px 80px; font: va
 #consequences .domino-stage { overflow-x: auto; overflow-y: hidden; overscroll-behavior-inline: contain; }
 #consequences .domino-stage-inner { min-width: 960px; padding: 48px 0 24px; }
 #consequences .domino-grid { width: 88%; margin: 0 auto; gap: 48px; }
-#consequences .domino-grid .aud-card { display: flex; flex-direction: column; min-height: 320px; padding: 32px 16px 24px; text-align: center; background: #e7ecfb; transform: rotate(5deg); transform-origin: center bottom; }
-#consequences .domino-grid .aud-card:nth-child(1) { background: var(--surface-primary); color: var(--text-inverse); transform: rotate(12deg); }
-#consequences .domino-grid .aud-card:nth-child(1) :is(h3, p, .ui-badge) { color: var(--text-inverse); }
-#consequences .domino-grid .aud-card:nth-child(1) .ui-badge { background: transparent; }
-#consequences .domino-grid .aud-card:nth-child(2) { background: #fbe9d2; transform: rotate(9deg); }
-#consequences .domino-grid .aud-card:nth-child(4) { background: #d8dbe2; transform: rotate(2deg); }
+#consequences .domino-grid .ui-card { display: flex; flex-direction: column; min-height: 320px; padding: 32px 16px 24px; text-align: center; background: #e7ecfb; transform: rotate(5deg); transform-origin: center bottom; }
+#consequences .domino-grid .ui-card:nth-child(1) { background: var(--surface-primary); color: var(--text-inverse); transform: rotate(12deg); }
+#consequences .domino-grid .ui-card:nth-child(1) :is(h3, p, .ui-badge) { color: var(--text-inverse); }
+#consequences .domino-grid .ui-card:nth-child(1) .ui-badge { background: transparent; }
+#consequences .domino-grid .ui-card:nth-child(2) { background: #fbe9d2; transform: rotate(9deg); }
+#consequences .domino-grid .ui-card:nth-child(4) { background: #d8dbe2; transform: rotate(2deg); }
 #consequences .domino-grid .ui-badge { align-self: center; }
-#consequences .domino-grid .aud-card > p { margin-top: auto; font: var(--type-subtitle); letter-spacing: normal; }
+#consequences .domino-grid .ui-card > p { margin-top: auto; font: var(--type-subtitle); letter-spacing: normal; }
 #consequences .domino-grid h3 span { display: block; white-space: normal; }
 @media (min-width: 1200px) and (max-width: 1439px) {
   #consequences .domino-stage { overflow: visible; }
@@ -806,8 +837,7 @@ section .btn, .cta-actions .btn { min-height: 64px; padding: 12px 80px; font: va
   #how .workflow-screenshot-placeholder { width: 122%; }
 }
 #how .metrics { width: 100%; margin-top: 0; padding: 0; overflow: visible; border-radius: 0; color: var(--text-primary); background: var(--surface-page); }
-#how .metrics > div { display: grid; grid-template-columns: clamp(96px, 10vw, 112px) minmax(0, 1fr); column-gap: 16px; row-gap: 8px; align-items: center; }
-#how .metrics-figure { display: block; grid-column: 1; grid-row: 1; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; border-radius: 50%; clip-path: circle(49% at 50% 50%); }
+#how .metrics > div { display: grid; grid-template-columns: var(--illus-circle-col) minmax(0, 1fr); column-gap: 16px; row-gap: 8px; align-items: center; }
 #how .metrics .clients-title { grid-column: 2; grid-row: 1; margin-bottom: 0; color: var(--text-primary); letter-spacing: normal; }
 #how .metrics-table { grid-column: 1 / -1; grid-row: 2; width: 100%; border-collapse: collapse; font: var(--type-body); color: var(--text-primary); }
 #how .metrics-table th,
@@ -1034,10 +1064,10 @@ footer .foot-col a:hover { color: var(--text-inverse); }
     #consequences .domino-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   .timeline .tl-desc { max-width: none; text-wrap: pretty; overflow-wrap: normal; word-break: normal; }
-  #consequences .domino-grid .aud-card { min-height: 260px; padding: 24px 10px 20px; transform: none; }
-  #consequences .domino-grid .aud-card:nth-child(1),
-  #consequences .domino-grid .aud-card:nth-child(2),
-  #consequences .domino-grid .aud-card:nth-child(4) { transform: none; }
+  #consequences .domino-grid .ui-card { min-height: 260px; padding: 24px 10px 20px; transform: none; }
+  #consequences .domino-grid .ui-card:nth-child(1),
+  #consequences .domino-grid .ui-card:nth-child(2),
+  #consequences .domino-grid .ui-card:nth-child(4) { transform: none; }
   #how .how-layout .how-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
   #how .how-connector { display: none; }
   #how .how-step { border-top: 0; padding: 0; }
@@ -1173,10 +1203,10 @@ footer .foot-col a:hover { color: var(--text-inverse); }
   @container domino (max-width: 720px) {
     #consequences .domino-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
-  #consequences .domino-grid .aud-card { min-height: 220px; padding: 20px 10px 16px; transform: none; }
-  #consequences .domino-grid .aud-card:nth-child(1),
-  #consequences .domino-grid .aud-card:nth-child(2),
-  #consequences .domino-grid .aud-card:nth-child(4) { transform: none; }
+  #consequences .domino-grid .ui-card { min-height: 220px; padding: 20px 10px 16px; transform: none; }
+  #consequences .domino-grid .ui-card:nth-child(1),
+  #consequences .domino-grid .ui-card:nth-child(2),
+  #consequences .domino-grid .ui-card:nth-child(4) { transform: none; }
   #demo .manager-note { max-width: none; text-wrap: pretty; overflow-wrap: normal; word-break: normal; }
   .feat-card:first-child, .feat-card:nth-child(5), .feat-card:nth-child(8) { grid-column: 1; min-height: 0; }
   .feat-card { min-height: 0; }
@@ -1202,10 +1232,9 @@ footer .foot-col a:hover { color: var(--text-inverse); }
   .platform-logo-slot { width: 48px; height: 48px; }
   .platform-logo-slot--wide { width: 60px; height: 48px; }
   .platform-more-shops { white-space: normal; }
-  .platform-data-group { grid-template-columns: 72px minmax(0, 1fr); }
   .platform-data-panel { padding: 24px 20px; }
   .platform-data-group + .platform-data-group { margin-top: 16px; }
-  #economy .economy-card-head { grid-template-columns: 80px minmax(0, 1fr); }
+  :is(#economy .economy-card-head, .platform-data-group, #how .metrics > div) { grid-template-columns: 80px minmax(0, 1fr); }
   .about-social:nth-child(3), .about-social:nth-child(4) { margin-left: 0; }
   .compare-table table { min-width: 520px; }
   .lead-consent input[type="checkbox"] { flex: 0 0 44px; width: 44px; height: 44px; }
@@ -1280,8 +1309,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="price-label">Рубль в рубль <span>без ручной работы</span></p>
           </div>
         </div>
-        <img class="hero-screenshot-placeholder hero-screenshot-primary" src="assets/hero-price-distribution.png" alt="">
-        <img class="hero-screenshot-placeholder hero-screenshot-secondary" src="assets/hero-product-details.png" alt="">
+        <img class="hero-screenshot-placeholder hero-screenshot-primary" src="assets/hero-price-distribution.jpg" alt="">
+        <img class="hero-screenshot-placeholder hero-screenshot-secondary" src="assets/hero-product-details.jpg" alt="">
       </div>
     </div>
   </div>
@@ -1293,13 +1322,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="section-title">Экономия на автоматизации <span class="cta-label">85 000 ₽<span class="price-suffix">/мес</span></span></h2>
 
     <div class="about-text">
-      <div class="aud-card">
+      <div class="ui-card">
         <div class="economy-card-head">
           <div class="economy-card-copy">
             <div class="aud-role">Штатный сотрудник</div>
             <div class="metric-num">100 000+ ₽<span class="price-suffix">/мес</span></div>
           </div>
-          <img class="economy-card-figure" src="assets/economy-worker.png" alt="" aria-hidden="true">
+          <div class="economy-card-figure-slot"><img class="economy-card-figure" src="assets/economy-worker.jpg" alt="" aria-hidden="true"></div>
         </div>
         <ul>
           <li><svg class="economy-list-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg><span>Зарплата 80 000 ₽<span class="price-suffix">/мес</span> плюс налоги и соцвзносы</span></li>
@@ -1309,13 +1338,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><svg class="economy-list-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg><span>Отпуска и больничные прерывают мониторинг</span></li>
         </ul>
       </div>
-      <div class="aud-card">
+      <div class="ui-card">
         <div class="economy-card-head">
           <div class="economy-card-copy">
             <div class="aud-role">Pricing.su</div>
             <div class="metric-num">15 000+ ₽<span class="price-suffix">/мес</span></div>
           </div>
-          <img class="economy-card-figure" src="assets/economy-spacecraft.png" alt="" aria-hidden="true">
+          <div class="economy-card-figure-slot"><img class="economy-card-figure" src="assets/economy-spacecraft.jpg" alt="" aria-hidden="true"></div>
         </div>
         <ul>
           <li><svg class="economy-list-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg><span>Фиксированная стоимость автоматизации</span></li>
@@ -1336,7 +1365,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="section-title">Сохраним прибыль</h2>
 
     <div class="audience-grid">
-      <div class="aud-card">
+      <div class="ui-card">
         <div class="ui-badge ui-badge--tone-1 aud-role">Собственнику</div>
         <h3>Сохраните дилерскую сеть и прибыль</h3>
         <p class="text-muted">Контроль бизнеса с минимальной ручной работой. Понятные цифры для стратегических решений.</p>
@@ -1348,7 +1377,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </div>
 
-      <div class="aud-card">
+      <div class="ui-card">
         <div class="ui-badge ui-badge--tone-2 aud-role">Коммерческому директору</div>
         <h3>Никто не демпингует — прибыль на месте</h3>
         <p class="text-muted">Своевременная реакция на любое изменение цены. Доказательная база для разговора с партнёрами.</p>
@@ -1360,7 +1389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </div>
 
-      <div class="aud-card">
+      <div class="ui-card">
         <div class="ui-badge ui-badge--tone-3 aud-role">E-commerce директору</div>
         <h3>СПП и акции не съедают маржу</h3>
         <p class="text-muted">Соблюдение РРЦ на маркетплейсах даже с учётом скидок площадки. Контроль цен конкурентов.</p>
@@ -1393,7 +1422,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>Что собираем с каждой карточки товара</h3>
         <div class="platform-data-groups">
           <div class="platform-data-group">
-            <img class="platform-data-figure" src="assets/platform-price-tag.png" alt="" aria-hidden="true">
+            <div class="platform-data-figure-slot"><img class="platform-data-figure" src="assets/platform-price-tag.jpg" alt="" aria-hidden="true"></div>
             <div class="platform-data-copy">
               <h3>Цена</h3>
               <ul>
@@ -1405,7 +1434,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="platform-data-group">
-            <img class="platform-data-figure" src="assets/platform-product-info.png" alt="" aria-hidden="true">
+            <div class="platform-data-figure-slot"><img class="platform-data-figure" src="assets/platform-product-info.jpg" alt="" aria-hidden="true"></div>
             <div class="platform-data-copy">
               <h3>Товар</h3>
               <ul>
@@ -1417,7 +1446,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="platform-data-group">
-            <img class="platform-data-figure" src="assets/platform-seller-data.png" alt="" aria-hidden="true">
+            <div class="platform-data-figure-slot"><img class="platform-data-figure" src="assets/platform-seller-data.jpg" alt="" aria-hidden="true"></div>
             <div class="platform-data-copy">
               <h3>Продавец</h3>
               <ul>
@@ -1440,7 +1469,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="section-title">Как Pricing.su помогает</h2>
 
     <div class="audience-grid">
-      <div class="aud-card">
+      <div class="ui-card">
         <div class="feature-heading">
           <svg class="feature-heroicon" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" role="img" aria-labelledby="feature-monitoring-icon-title" focusable="false">
             <title id="feature-monitoring-icon-title">Непрерывный автоматический мониторинг цен</title>
@@ -1450,7 +1479,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <p>Отслеживаем цены на всех площадках 24/7 без участия человека</p>
       </div>
-      <div class="aud-card">
+      <div class="ui-card">
         <div class="feature-heading">
           <svg class="feature-heroicon" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" role="img" aria-labelledby="feature-notifications-icon-title" focusable="false">
             <title id="feature-notifications-icon-title">Мгновенное сообщение о нарушении РРЦ</title>
@@ -1460,13 +1489,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <p>Сообщаем о нарушениях РРЦ в реальном времени</p>
       </div>
-      <div class="aud-card">
+      <div class="ui-card">
         <div class="feature-heading">
           <svg class="feature-heroicon" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" role="img" aria-labelledby="feature-analytics-icon-title" focusable="false">
             <title id="feature-analytics-icon-title">Отчёты с историей цен и трендами</title>
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605"/>
           </svg>
-          <h3 class="feature-title-analytics">Детальная<br>аналитика</h3>
+          <h3 class="feature-title-analytics"><span class="feature-title-line">Детальная</span><span class="feature-title-line">аналитика</span></h3>
         </div>
         <p>Формируем отчёты с историей изменений и ценовыми трендами</p>
       </div>
@@ -1477,10 +1506,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="domino-stage" tabindex="0" aria-label="Цепочка эффекта домино">
         <div class="domino-stage-inner">
           <div class="domino-grid">
-            <div class="aud-card"><div class="ui-badge ui-badge--tone-orange aud-role">Шаг 1</div><h3><span>Селлер А</span><span>нарушает</span><span>РРЦ</span></h3><p>−15% от РРЦ</p></div>
-            <div class="aud-card"><div class="ui-badge ui-badge--tone-1 aud-role">Шаг 2</div><h3><span>Селлер Б</span><span>вынужден</span><span>снижать</span></h3><p>−10% от РРЦ</p></div>
-            <div class="aud-card"><div class="ui-badge ui-badge--tone-2 aud-role">Шаг 3</div><h3><span>Селлер В</span><span>теряет</span><span>продажи</span></h3><p>РРЦ → 0 продаж</p></div>
-            <div class="aud-card"><div class="ui-badge ui-badge--tone-3 aud-role">Шаг 4</div><h3><span>Бренд</span><span>теряет</span><span>прибыль</span></h3><p>−30% маржи</p></div>
+            <div class="ui-card"><div class="ui-badge ui-badge--tone-orange aud-role">Шаг 1</div><h3><span>Селлер А</span><span>нарушает</span><span>РРЦ</span></h3><p>−15% от РРЦ</p></div>
+            <div class="ui-card"><div class="ui-badge ui-badge--tone-1 aud-role">Шаг 2</div><h3><span>Селлер Б</span><span>вынужден</span><span>снижать</span></h3><p>−10% от РРЦ</p></div>
+            <div class="ui-card"><div class="ui-badge ui-badge--tone-2 aud-role">Шаг 3</div><h3><span>Селлер В</span><span>теряет</span><span>продажи</span></h3><p>РРЦ → 0 продаж</p></div>
+            <div class="ui-card"><div class="ui-badge ui-badge--tone-3 aud-role">Шаг 4</div><h3><span>Бренд</span><span>теряет</span><span>прибыль</span></h3><p>−30% маржи</p></div>
           </div>
         </div>
       </div>
@@ -1533,11 +1562,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="how-showcase">
         <div class="workflow-screenshot-crop">
-          <img class="workflow-screenshot-placeholder" src="assets/workflow-report.png" alt="">
+          <img class="workflow-screenshot-placeholder" src="assets/workflow-report.jpg" alt="">
         </div>
         <div class="metrics" aria-label="Скорость обработки отчётов">
           <div>
-            <img class="metrics-figure" src="assets/report-speed-realistic.png" alt="" aria-hidden="true">
+            <div class="metrics-figure-slot"><img class="metrics-figure" src="assets/report-speed-realistic.jpg" alt="" aria-hidden="true"></div>
             <h3 class="clients-title">Скорость обработки отчётов</h3>
             <table class="metrics-table">
               <thead>
@@ -1613,7 +1642,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       </div>
-      <img class="about-photo-placeholder" src="assets/about-team.png" alt="">
+      <img class="about-photo-placeholder" src="assets/about-team.jpg" alt="">
       <div class="timeline">
         <div class="tl-item"><div class="tl-year">2015</div><div class="tl-desc">Первый скрипт для <span class="brand-yandex">Яндекс.Маркета</span></div></div>
         <div class="tl-item"><div class="tl-year">2018</div><div class="tl-desc">Мониторинг <span class="brand-wildberries">Wildberries</span> и <span class="brand-ozon">Ozon</span></div></div>
@@ -1635,7 +1664,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="manager-card">
-        <img class="manager-photo" src="assets/manager-portrait.png" alt="Личный менеджер Pricing.su" width="72" height="72" loading="lazy" decoding="async">
+        <img class="manager-photo" src="assets/manager-portrait.jpg" alt="Личный менеджер Pricing.su" width="72" height="72" loading="lazy" decoding="async">
         <p class="manager-note">После регистрации личный менеджер поможет настроить сервис под ваши задачи</p>
       </div>
     </div>
@@ -1672,11 +1701,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 (function(){
   var header = document.querySelector('header');
   if (!header) return;
-  function updateHeaderShadow(){
-    header.classList.toggle('is-scrolled', window.scrollY > 0);
+  var sentinel = document.createElement('div');
+  sentinel.className = 'header-scroll-sentinel';
+  sentinel.setAttribute('aria-hidden', 'true');
+  header.parentNode.insertBefore(sentinel, header);
+  function setScrolled(scrolled) {
+    header.classList.toggle('is-scrolled', scrolled);
   }
-  updateHeaderShadow();
-  window.addEventListener('scroll', updateHeaderShadow, { passive: true });
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      setScrolled(!entries[0].isIntersecting);
+    }, { threshold: 0 });
+    observer.observe(sentinel);
+  } else {
+    function updateHeaderShadow() {
+      var y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      setScrolled(y > 0);
+    }
+    updateHeaderShadow();
+    window.addEventListener('scroll', updateHeaderShadow, { passive: true });
+    document.addEventListener('scroll', updateHeaderShadow, { passive: true });
+  }
 })();
 
 // Отправка формы на почту (mailto — открывает почтовый клиент с заполненным письмом)
@@ -1705,17 +1750,17 @@ function sendLead(e){
 <style>
 .b24-widget-button-inner-block,
 .b24-widget-button-inner-mask {
-  background: #173fc4 !important;
+  background: var(--surface-primary) !important;
 }
 .b24-widget-button-openline_livechat {
-  background-color: #173fc4 !important;
+  background-color: var(--surface-primary) !important;
 }
 .b24-widget-button-pulse {
-  border: 4px solid #173fc4 !important;
+  border: 4px solid var(--surface-primary) !important;
 }
 .b24-widget-button-popup,
 .b24-widget-button-popup-triangle {
-  border-color: #173fc4 !important;
+  border-color: var(--surface-primary) !important;
 }
 </style>
 
