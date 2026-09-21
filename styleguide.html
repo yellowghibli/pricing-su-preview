@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Pricing.su — мини-стайлгайд (1440px)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --surface-page: #f8f8f2;
+  --surface-section: #eeeee6;
+  --surface-secondary: #e4eaff;
+  --surface-primary: #c94b0b;
+  --surface-accent: #173fc4;
+  --text-primary: #172346;
+  --text-secondary: #586079;
+  --text-inverse: #fff;
+  --border-default: #cbd0d7;
+  --border-subtle: #dce0e7;
+  --font-family: "Geologica", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --display-size: 80px;
+  --display-leading: 84px;
+  --heading-size: 48px;
+  --heading-leading: 52px;
+  --title-size: 24px;
+  --title-leading: 32px;
+  --body-size: 16px;
+  --body-leading: 24px;
+  --stat-size: 96px;
+  --stat-leading: 100px;
+  --brand-size: 32px;
+  --brand-leading: 40px;
+  --tracking-display: -.04em;
+  --tracking-accent: -.05em;
+  --tracking-brand: -.04em;
+  --radius-control: 8px;
+  --badge-size: 12px;
+  --badge-leading: 16px;
+  --tracking-badge: .12em;
+  --radius-badge: 999px;
+  --type-badge: 400 var(--badge-size)/var(--badge-leading) var(--font-family);
+  --type-display: 700 var(--display-size)/var(--display-leading) var(--font-family);
+  --type-heading: 700 var(--heading-size)/var(--heading-leading) var(--font-family);
+  --type-stat: 700 var(--stat-size)/var(--stat-leading) var(--font-family);
+  --type-title: 700 var(--title-size)/var(--title-leading) var(--font-family);
+  --subtitle-size: 20px;
+  --subtitle-leading: 26px;
+  --type-subtitle: 500 var(--subtitle-size)/var(--subtitle-leading) var(--font-family);
+  --type-body: 400 var(--body-size)/var(--body-leading) var(--font-family);
+  --type-body-strong: 700 var(--body-size)/var(--body-leading) var(--font-family);
+  --type-brand: 700 var(--brand-size)/var(--brand-leading) var(--font-family);
+  --page-gutter: 32px;
+  --content-width: 1248px;
+  --badge-tone-a: #fff;
+  --badge-tone-b: #fafbff;
+  --badge-tone-c: #f5f7ff;
+  --badge-tone-d: #f0f2ff;
+  --badge-tone-orange-a: #fff;
+  --badge-tone-orange-b: #fffaf7;
+  --aud-tone-a: #fafbff;
+  --aud-tone-b: #e8edff;
+  --aud-tone-c: #d4dfff;
+  --aud-tone-d: #bccaff;
+  --surface-primary-hover: #b33e06;
+  --surface-hero-paper: #f1eadb;
+  --text-action: #172346;
+  --focus-color: #173fc4;
+  --border-field: #929bad;
+  --shadow-label: 0 16px 28px rgb(23 35 70 / 16%);
+  --radius-panel: 16px;
+  --radius-section: 16px;
+  --radius-field: 8px;
+  --card-padding: 32px;
+  --panel-padding-y: 48px;
+  --block-pad-top: 104px;
+  --block-pad-bottom: 88px;
+  --icon-stroke-base: 1.5;
+  --icon-size-lg: 52px;
+  --illus-circle-col: clamp(96px, 10vw, 132px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { min-width: 1440px; }
+body { font: var(--type-body); color: var(--text-primary); background: var(--surface-page); -webkit-font-smoothing: antialiased; }
+
+.sg-wrap { width: calc(100% - 2 * var(--page-gutter)); max-width: var(--content-width); margin: 0 auto; padding: 48px 0 96px; }
+.sg-badge { display: inline-block; margin-bottom: 16px; padding: 4px 10px; border-radius: 6px; background: var(--surface-secondary); color: var(--surface-accent); font-size: 14px; line-height: 20px; font-weight: 700; }
+.sg-header { margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border-default); }
+.sg-header h1 { font: var(--type-heading); letter-spacing: var(--tracking-accent); margin-bottom: 12px; }
+.sg-header p { color: var(--text-secondary); max-width: 80ch; }
+.sg-section { margin-bottom: 64px; }
+.sg-section > h2 { font: var(--type-title); letter-spacing: var(--tracking-accent); margin-bottom: 8px; }
+.sg-note { color: var(--text-secondary); margin-bottom: 24px; max-width: 80ch; }
+.sg-table { width: 100%; border-collapse: collapse; }
+.sg-table th, .sg-table td { padding: 16px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-subtle); }
+.sg-table th { font-size: 13px; line-height: 18px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .02em; }
+.sg-table code { font: 400 13px/20px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--surface-accent); }
+.sg-landing { font-size: 14px; line-height: 20px; color: var(--text-secondary); max-width: 30ch; }
+.sg-landing em { display: block; margin-top: 4px; font-style: normal; color: var(--text-primary); }
+.sg-sample { min-width: 220px; max-width: 420px; }
+.sg-subgroup { margin-top: 32px; }
+.sg-subgroup h3 { font: var(--type-body-strong); margin-bottom: 12px; }
+.sg-colors { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.sg-swatch { border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; background: #fff; }
+.sg-swatch-color { height: 72px; }
+.sg-swatch-info { padding: 12px 14px 14px; }
+.sg-swatch-info strong { display: block; font-weight: 700; margin-bottom: 4px; }
+.sg-swatch-info code { display: block; font: 400 13px/18px ui-monospace, monospace; color: var(--surface-accent); margin-bottom: 6px; }
+.sg-swatch-info p { font-size: 14px; line-height: 20px; color: var(--text-secondary); }
+.sg-on-dark { background: var(--surface-accent); color: var(--text-inverse); padding: 12px; border-radius: 8px; display: inline-block; }
+
+.t-hero-h1 { font: 700 72px/76px var(--font-family); letter-spacing: var(--tracking-display); color: var(--surface-accent); }
+.t-heading { font: var(--type-heading); letter-spacing: var(--tracking-accent); }
+.t-stat { font: var(--type-stat); letter-spacing: var(--tracking-accent); color: var(--surface-accent); }
+.t-title { font: var(--type-title); letter-spacing: var(--tracking-accent); }
+.t-subtitle { font: var(--type-subtitle); }
+.t-body { font: var(--type-body); }
+.t-body-strong { font: var(--type-body-strong); }
+.t-brand { font: var(--type-brand); letter-spacing: var(--tracking-brand); color: var(--surface-accent); }
+.t-brand-inverse { font: var(--type-brand); letter-spacing: var(--tracking-brand); color: var(--text-inverse); background: var(--text-primary); display: inline-block; padding: 4px 8px; border-radius: 4px; }
+.t-muted { color: var(--text-secondary); }
+.t-on-blue { color: var(--text-inverse); background: var(--surface-accent); display: inline-block; padding: 4px 8px; border-radius: 6px; }
+.t-on-orange { color: var(--text-inverse); background: var(--surface-primary); display: inline-block; padding: 8px 16px; border-radius: 8px; }
+.t-brand-ozon { background: linear-gradient(110deg, #005bff 15%, #7654e8 55%, #f91155 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.t-brand-wb { color: #a73afd; }
+.t-brand-yandex { color: #fc3f1d; }
+
+.ui-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  width: fit-content;
+  padding: 2px 8px;
+  border: none;
+  border-radius: var(--radius-badge);
+  color: var(--surface-accent);
+  font: var(--type-badge);
+  letter-spacing: var(--tracking-badge);
+  text-transform: uppercase;
+  background-repeat: no-repeat;
+}
+.ui-badge--tone-orange { color: var(--surface-primary); background-image: linear-gradient(282deg, var(--badge-tone-orange-b) 0%, var(--badge-tone-orange-a) 100%); }
+.ui-badge--tone-1 { background-image: linear-gradient(282deg, var(--badge-tone-b) 0%, var(--badge-tone-a) 100%); }
+.ui-badge--tone-2 { background-image: linear-gradient(282deg, var(--badge-tone-c) 0%, var(--badge-tone-b) 100%); }
+.ui-badge--tone-3 { background-image: linear-gradient(282deg, var(--badge-tone-d) 0%, var(--badge-tone-c) 100%); }
+
+.ui-card {
+  padding: var(--card-padding);
+  border-radius: var(--radius-panel);
+  color: var(--text-primary);
+  background: var(--surface-secondary);
+}
+.ui-card--grad {
+  background-image: linear-gradient(102deg, var(--aud-tone-a) 0%, var(--aud-tone-b) 33.33%, var(--aud-tone-c) 66.66%, var(--aud-tone-d) 100%);
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+}
+.ui-card--grad-1 { background-position: 0% 0; }
+.ui-card--grad-2 { background-position: 50% 0; }
+.ui-card--grad-3 { background-position: 100% 0; }
+.ui-card h3 { font: var(--type-title); letter-spacing: var(--tracking-accent); margin-bottom: 16px; }
+.ui-card .text-muted { color: var(--text-secondary); margin-bottom: 16px; font: var(--type-body); letter-spacing: normal; }
+.ui-card ul { list-style: disc; padding-left: 1.15em; font: var(--type-body); letter-spacing: normal; }
+.ui-card li { padding: 8px 0; }
+
+.sg-icon { display: block; flex-shrink: 0; color: var(--surface-accent); fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+.sg-icon--lg { width: var(--icon-size-lg); height: var(--icon-size-lg); stroke-width: var(--icon-stroke-base); }
+.sg-icon-row { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-top: 16px; }
+.sg-illus-slot { width: var(--illus-circle-col); aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: var(--surface-section); flex-shrink: 0; }
+.sg-illus-slot img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.sg-illus-example { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 20px; }
+.sg-illus-caption { max-width: 36ch; font-size: 14px; line-height: 20px; color: var(--text-secondary); }
+.sg-illus-caption strong { display: block; margin-bottom: 6px; color: var(--text-primary); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="sg-wrap">
+  <header class="sg-header">
+    <p class="sg-badge">Desktop 1440px</p>
+    <h1>Мини-стайлгайд Pricing.su</h1>
+    <p>9 типографических ролей. Цвет текста задаётся отдельно. Токены — при ширине ≥1440px.</p>
+  </header>
+
+  <section class="sg-section" id="typography">
+    <h2>Типографика</h2>
+    <p class="sg-note">Geologica 400 / 500 / 700.</p>
+
+    <table class="sg-table">
+      <thead>
+        <tr>
+          <th>Стиль</th>
+          <th>Токен</th>
+          <th>На лендинге</th>
+          <th>Пример</th>
+          <th>Кегль</th>
+          <th>Leading</th>
+          <th>Вес</th>
+          <th>Tracking</th>
+          <th>Шрифт</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hero H1</td>
+          <td>локально</td>
+          <td class="sg-landing">Заголовок первого экрана<em>«РРЦ на Ozon и Wildberries»</em></td>
+          <td class="sg-sample"><span class="t-hero-h1">РРЦ на <span class="t-brand-ozon">Ozon</span> и <span class="t-brand-wb">Wildberries</span></span></td>
+          <td>72px</td><td>76px</td><td>700</td><td>−0.04em</td><td>Geologica</td>
+        </tr>
+        <tr>
+          <td>Heading</td>
+          <td><code>--type-heading</code></td>
+          <td class="sg-landing">Секции, метрики, цена калькулятора, коды РРЦ/МРЦ, крупные карточки<em>«Что теряет бизнес без контроля цен», «25 000», «12 500 ₽»</em></td>
+          <td class="sg-sample"><span class="t-heading">Что теряет бизнес без контроля цен</span></td>
+          <td>48px</td><td>52px</td><td>700</td><td>−0.05em</td><td>Geologica</td>
+        </tr>
+        <tr>
+          <td>Stat</td>
+          <td><code>--type-stat</code></td>
+          <td class="sg-landing">Номера в «Как работает»<em>«1», «2»… «5» — <code>#how .how-num</code></em></td>
+          <td class="sg-sample"><span class="t-stat">1</span></td>
+          <td>96px</td><td>100px</td><td>700</td><td>−0.05em</td><td>Geologica</td>
+        </tr>
+        <tr>
+          <td>Title</td>
+          <td><code>--type-title</code></td>
+          <td class="sg-landing">Карточки, FAQ, клиенты, этикетка<em>«Демпинг дилеров и партнёров», «Рубль в рубль», «Как быстро подключается сервис?»</em></td>
+          <td class="sg-sample"><span class="t-title">Демпинг дилеров и партнёров</span></td>
+          <td>24px</td><td>32px</td><td>700</td><td>−0.05em</td><td>Geologica</td>
+        </tr>
+        <tr>
+          <td>Subtitle</td>
+          <td><code>--type-subtitle</code></td>
+          <td class="sg-landing">Hero-лид, крупные CTA<em>«Автоматический мониторинг цен…», «Демо-доступ»</em></td>
+          <td class="sg-sample"><span class="t-subtitle">Автоматический мониторинг цен дилеров и партнёров</span></td>
+          <td>20px</td><td>26px</td><td>500</td><td>normal</td><td>Geologica</td>
+        </tr>
+        <tr>
+          <td>Body</td>
+          <td><code>--type-body</code></td>
+          <td class="sg-landing">Основной текст: абзацы, списки, кнопки, подписи, placeholder. Secondary — отдельным цветом<em>«Один партнёр сбил цену…», «Контроль бизнеса…» + <code>--text-secondary</code></em></td>
+          <td class="sg-sample"><span class="t-body">Один партнёр сбил цену — остальные вынуждены следом.</span></td>
+          <td>16px</td><td>24px</td><td>400</td><td>normal</td><td>Geologica</td>
+        </tr>
+        <tr>
+          <td>Body strong</td>
+          <td><code>--type-body-strong</code></td>
+          <td class="sg-landing">Выделения, th таблицы, подписи «Как решают сейчас»<em>«Как решают сейчас»</em></td>
+          <td class="sg-sample"><span class="t-body-strong">Как решают сейчас</span></td>
+          <td>16px</td><td>24px</td><td>700</td><td>normal</td><td>Geologica</td>
+        </tr>
+        <tr>
+          <td>Brand</td>
+          <td><code>--type-brand</code></td>
+          <td class="sg-landing">Логотип в шапке и подвале<em>«Pricing.su»</em></td>
+          <td class="sg-sample"><span class="t-brand">Pricing.su</span> · <span class="t-brand-inverse">Pricing.su</span></td>
+          <td>32px</td><td>40px</td><td>700</td><td>−0.04em</td><td>Geologica</td>
+        </tr>
+        <tr>
+          <td>Badge</td>
+          <td><code>--type-badge</code></td>
+          <td class="sg-landing">Caps-бейджи <code>.ui-badge</code><em>«Собственнику», «Шаг 1»</em></td>
+          <td class="sg-sample"><span class="ui-badge ui-badge--tone-1">Собственнику</span></td>
+          <td>12px</td><td>16px</td><td>400</td><td>+0.12em</td><td>Geologica</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sg-subgroup">
+      <h3>Пример: карточка клиента</h3>
+      <table class="sg-table">
+        <thead><tr><th>Строка</th><th>Стиль</th><th>Пример</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Название</td><td><code>Title</code> + <code>--tracking-accent</code></td>
+            <td><span class="t-title">ТЕХНОНИКОЛЬ</span></td>
+          </tr>
+          <tr>
+            <td>Подпись <code>&lt;small&gt;</code></td><td><code>Body</code> + <code>--text-secondary</code> + normal tracking</td>
+            <td><span class="t-body t-muted">производитель стройматериалов</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sg-subgroup">
+      <h3>Цвета текста (отдельно от типографики)</h3>
+      <table class="sg-table">
+        <thead>
+          <tr><th>Токен</th><th>HEX</th><th>На лендинге</th><th>Пример</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--text-primary</code></td><td>#172346</td>
+            <td class="sg-landing">Основной текст<em>«Полная картина рынка одним взглядом»</em></td>
+            <td class="t-body">Полная картина рынка одним взглядом</td>
+          </tr>
+          <tr>
+            <td><code>--text-secondary</code></td><td>#586079</td>
+            <td class="sg-landing">Подписи, роли, placeholder<em>«Для коммерческого директора»</em></td>
+            <td class="t-body t-muted">Для коммерческого директора</td>
+          </tr>
+          <tr>
+            <td><code>--text-inverse</code></td><td>#ffffff</td>
+            <td class="sg-landing">На синем и оранжевом<em>«лет на рынке с 2015 года»</em></td>
+            <td><span class="sg-on-dark t-body">лет на рынке с 2015 года</span></td>
+          </tr>
+          <tr>
+            <td><code>--surface-accent</code></td><td>#173fc4</td>
+            <td class="sg-landing">Hero, коды терминов<em>«РРЦ»</em></td>
+            <td class="t-title" style="color:var(--surface-accent)">РРЦ</td>
+          </tr>
+          <tr>
+            <td><code>--surface-primary</code></td><td>#c94b0b</td>
+            <td class="sg-landing">Этикетка hero, акцентные элементы<em>«рубль в рубль»</em></td>
+            <td class="t-title" style="color:var(--surface-primary)">Сохранить прибыль</td>
+          </tr>
+          <tr>
+            <td><code>.brand-ozon</code></td><td>градиент</td>
+            <td class="sg-landing">Название в H1<em>«Ozon»</em></td>
+            <td><span class="t-title t-brand-ozon">Ozon</span></td>
+          </tr>
+          <tr>
+            <td><code>.brand-wildberries</code></td><td>#a73afd</td>
+            <td class="sg-landing">Название в H1<em>«Wildberries»</em></td>
+            <td><span class="t-title t-brand-wb">Wildberries</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sg-section" id="components">
+    <h2>Компоненты</h2>
+
+    <div class="sg-subgroup" id="ui-badge">
+      <h3>Бейдж · caps · <code>.ui-badge</code></h3>
+      <table class="sg-table">
+        <thead>
+          <tr>
+            <th>Вариант</th>
+            <th>Контекст</th>
+            <th>Пример</th>
+            <th>Кегль</th>
+            <th>Leading</th>
+            <th>Tracking</th>
+            <th>Фон</th>
+            <th>Обводка</th>
+            <th>Цвет текста</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tone orange</td>
+            <td class="sg-landing"><code>.ui-badge--tone-orange</code><em>«Шаг 1»</em></td>
+            <td class="sg-sample"><span class="ui-badge ui-badge--tone-orange">Шаг 1</span></td>
+            <td>12px</td><td>16px</td><td>+0.12em</td>
+            <td>градиент <code>--badge-tone-orange-b → a</code></td>
+            <td>нет</td>
+            <td><code>--surface-primary</code></td>
+          </tr>
+          <tr>
+            <td>Tone 1</td>
+            <td class="sg-landing"><code>.ui-badge--tone-1</code><em>«Ловим демпинг», «Собственнику»</em></td>
+            <td class="sg-sample"><span class="ui-badge ui-badge--tone-1">Ловим демпинг</span></td>
+            <td>12px</td><td>16px</td><td>+0.12em</td>
+            <td>градиент <code>--badge-tone-b → a</code></td>
+            <td>нет</td>
+            <td><code>--surface-accent</code></td>
+          </tr>
+          <tr>
+            <td>Tone 2</td>
+            <td class="sg-landing"><code>.ui-badge--tone-2</code><em>«Коммерческому директору»</em></td>
+            <td class="sg-sample"><span class="ui-badge ui-badge--tone-2">Коммерческому директору</span></td>
+            <td>12px</td><td>16px</td><td>+0.12em</td>
+            <td>градиент <code>--badge-tone-c → b</code></td>
+            <td>нет</td>
+            <td><code>--surface-accent</code></td>
+          </tr>
+          <tr>
+            <td>Tone 3</td>
+            <td class="sg-landing"><code>.ui-badge--tone-3</code><em>«E-commerce директору»</em></td>
+            <td class="sg-sample"><span class="ui-badge ui-badge--tone-3">E-commerce директору</span></td>
+            <td>12px</td><td>16px</td><td>+0.12em</td>
+            <td>градиент <code>--badge-tone-d → c</code></td>
+            <td>нет</td>
+            <td><code>--surface-accent</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="sg-note" style="margin-top:16px"><code>.ui-badge</code> + модификатор тона: Geologica 400, uppercase, <code>--type-badge</code>, padding 2×8px, radius pill. <code>--tone-orange</code> — оранжевый текст и градиент; <code>--tone-1…3</code> — синий текст и градиент из <code>--badge-tone-*</code>.</p>
+      <p style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px">
+        <span class="ui-badge ui-badge--tone-orange">Шаг 1</span>
+        <span class="ui-badge ui-badge--tone-1">Ловим демпинг</span>
+        <span class="ui-badge ui-badge--tone-2">снимаем скриншоты нарушений</span>
+        <span class="ui-badge ui-badge--tone-3">защищаем маржинальность дилерской сети</span>
+        <span class="ui-badge ui-badge--tone-2">Коммерческому директору</span>
+        <span class="ui-badge ui-badge--tone-3">E-commerce директору</span>
+      </p>
+    </div>
+
+    <div class="sg-subgroup" id="ui-card">
+      <h3>Карточка · <code>.ui-card</code></h3>
+      <table class="sg-table">
+        <thead>
+          <tr>
+            <th>Параметр</th>
+            <th>Значение</th>
+            <th>На лендинге</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Padding</td>
+            <td><code>--card-padding</code> (32px)</td>
+            <td class="sg-landing"><code>#audience</code> — 3 карточки</td>
+          </tr>
+          <tr>
+            <td>Radius</td>
+            <td><code>--radius-panel</code> (16px)</td>
+            <td class="sg-landing">Все <code>.ui-card</code></td>
+          </tr>
+          <tr>
+            <td>Фон базовый</td>
+            <td><code>--surface-secondary</code></td>
+            <td class="sg-landing">По умолчанию</td>
+          </tr>
+          <tr>
+            <td>Фон градиент</td>
+            <td><code>--aud-tone-a…d</code>, size 300%, position по nth-child</td>
+            <td class="sg-landing"><code>#audience .audience-grid &gt; .ui-card</code><em>1-я / 2-я / 3-я → 0% / 50% / 100%</em></td>
+          </tr>
+          <tr>
+            <td>Заголовок</td>
+            <td><code>--type-title</code> + <code>--tracking-accent</code></td>
+            <td class="sg-landing"><code>h3</code> внутри карточки</td>
+          </tr>
+          <tr>
+            <td>Лид</td>
+            <td><code>--type-body</code> + <code>--text-secondary</code></td>
+            <td class="sg-landing"><code>p.text-muted</code> в #audience</td>
+          </tr>
+          <tr>
+            <td>Список</td>
+            <td><code>--type-body</code>, disc</td>
+            <td class="sg-landing">#audience — маркированный список</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px;max-width:960px">
+        <div class="ui-card ui-card--grad ui-card--grad-1">
+          <span class="ui-badge ui-badge--tone-1">Собственнику</span>
+          <h3 style="margin-top:16px">Сохраните дилерскую сеть</h3>
+          <p class="text-muted">Контроль бизнеса с минимальной ручной работой.</p>
+        </div>
+        <div class="ui-card ui-card--grad ui-card--grad-2">
+          <span class="ui-badge ui-badge--tone-2">Коммерческому директору</span>
+          <h3 style="margin-top:16px">Никто не демпингует</h3>
+          <p class="text-muted">Своевременная реакция на изменение цены.</p>
+        </div>
+        <div class="ui-card ui-card--grad ui-card--grad-3">
+          <span class="ui-badge ui-badge--tone-3">E-commerce директору</span>
+          <h3 style="margin-top:16px">СПП не съедают маржу</h3>
+          <p class="text-muted">Соблюдение РРЦ на маркетплейсах.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sg-section" id="geometry">
+    <h2>Отступы и радиусы</h2>
+    <p class="sg-note">Секции: <code>padding: var(--block-pad-top) 0 var(--block-pad-bottom)</code> — 104px сверху, 88px снизу.</p>
+    <table class="sg-table">
+      <thead><tr><th>Токен</th><th>Значение</th><th>Где</th></tr></thead>
+      <tbody>
+        <tr><td><code>--content-width</code></td><td>1248px</td><td class="sg-landing"><code>.container</code></td></tr>
+        <tr><td><code>--page-gutter</code></td><td>32px</td><td class="sg-landing">Боковые поля контейнера</td></tr>
+        <tr><td><code>--card-padding</code></td><td>32px</td><td class="sg-landing">Карточки, метрики, форма</td></tr>
+        <tr><td><code>--panel-padding-y</code></td><td>48px</td><td class="sg-landing">Полоса метрик, demo-final</td></tr>
+        <tr><td><code>--radius-panel</code></td><td>16px</td><td class="sg-landing">Карточки, скриншоты, форма</td></tr>
+        <tr><td><code>--radius-section</code></td><td>16px</td><td class="sg-landing">CTA-блок, demo-final</td></tr>
+        <tr><td><code>--radius-control</code></td><td>8px</td><td class="sg-landing">Кнопки, cons-num, поля (через <code>--radius-field</code>)</td></tr>
+        <tr><td><code>--shadow-label</code></td><td>0 16px 28px rgb(23 35 70 / 16%)</td><td class="sg-landing">Hero-этикетка, скриншоты, calc-total</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sg-section" id="icons">
+    <h2>Контурные иконки</h2>
+    <p class="sg-note">По умолчанию берём из <strong>Heroicons Outline</strong> — inline SVG, viewBox <code>0 0 24 24</code>, <code>fill="none"</code>, <code>stroke="currentColor"</code>, <code>stroke-width="1.5"</code>, <code>stroke-linecap="round"</code>, <code>stroke-linejoin="round"</code>.</p>
+
+    <table class="sg-table">
+      <thead><tr><th>Параметр</th><th>Значение</th></tr></thead>
+      <tbody>
+        <tr><td>Семейство</td><td>Heroicons Outline</td></tr>
+        <tr><td>Размер</td><td>52×52 px</td></tr>
+        <tr><td>Толщина линии</td><td>1.5</td></tr>
+        <tr><td>Цвет</td><td><code>currentColor</code> — обычно <code>--surface-accent</code></td></tr>
+      </tbody>
+    </table>
+
+    <div class="sg-icon-row">
+      <svg class="sg-icon sg-icon--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15m7.5-7.5h-15"/></svg>
+      <span class="t-body t-muted">52×52 px · Heroicons Outline · stroke 1.5</span>
+    </div>
+  </section>
+
+  <section class="sg-section" id="illustrations">
+    <h2>Круглые иллюстрации</h2>
+    <p class="sg-note">Стиль — <strong>соцреализм</strong>: плакетная живопись, героический бытовой сюжет, насыщенные красный и синий, контрастный свет. JPG в круглом слоте <code>--illus-circle-col</code> (132 px при 1440px).</p>
+
+    <div class="sg-illus-example">
+      <div class="sg-illus-slot">
+        <img src="assets/economy-worker.jpg" alt="" aria-hidden="true">
+      </div>
+      <div class="sg-illus-caption">
+        <strong>Пример</strong>
+        Соцреалистический портрет в круге — работница в красном платке и синей рубашке.
+      </div>
+    </div>
+  </section>
+
+  <section class="sg-section" id="colors">
+    <h2>Цвета</h2>
+    <p class="sg-note">Поверхности, текст, границы. Брендовые Ozon / WB / Yandex / Excel — локальные классы hero.</p>
+
+    <div class="sg-colors">
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#f8f8f2"></div><div class="sg-swatch-info"><strong>Страница</strong><code>--surface-page</code><p>#f8f8f2</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#eeeee6"></div><div class="sg-swatch-info"><strong>Секция</strong><code>--surface-section</code><p>#eeeee6</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#e4eaff"></div><div class="sg-swatch-info"><strong>Вторичная</strong><code>--surface-secondary</code><p>#e4eaff — база <code>.ui-card</code></p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:linear-gradient(102deg,#fafbff,#e8edff,#d4dfff,#bccaff)"></div><div class="sg-swatch-info"><strong>Card gradient</strong><code>--aud-tone-a…d</code><p><code>#audience</code></p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#c94b0b"></div><div class="sg-swatch-info"><strong>Primary</strong><code>--surface-primary</code><p>#c94b0b — этикетка, CTA</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#b33e06"></div><div class="sg-swatch-info"><strong>Primary hover</strong><code>--surface-primary-hover</code><p>#b33e06</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#173fc4"></div><div class="sg-swatch-info"><strong>Accent</strong><code>--surface-accent</code><p>#173fc4 — метрики, калькулятор, CTA</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#172346"></div><div class="sg-swatch-info"><strong>Text primary</strong><code>--text-primary</code><p>#172346</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#586079"></div><div class="sg-swatch-info"><strong>Text secondary</strong><code>--text-secondary</code><p>#586079</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#fff;border-bottom:1px solid #dce0e7"></div><div class="sg-swatch-info"><strong>Text inverse</strong><code>--text-inverse</code><p>#ffffff</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#cbd0d7"></div><div class="sg-swatch-info"><strong>Border</strong><code>--border-default</code><p>#cbd0d7 — разделители, pain-карточки</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#dce0e7"></div><div class="sg-swatch-info"><strong>Border subtle</strong><code>--border-subtle</code><p>#dce0e7 — footer</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#929bad"></div><div class="sg-swatch-info"><strong>Border field</strong><code>--border-field</code><p>#929bad — поля формы</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#fff;border:3px solid #173fc4"></div><div class="sg-swatch-info"><strong>Focus</strong><code>--focus-color</code><p>#173fc4 — border/outline полей</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#f1eadb"></div><div class="sg-swatch-info"><strong>Hero paper</strong><code>.hero</code><p>#f1eadb</p></div></article>
+      <article class="sg-swatch"><div class="sg-swatch-color" style="background:#d8dbe2"></div><div class="sg-swatch-info"><strong>Placeholder bg</strong><code>.hero-screenshot-placeholder</code><p>#d8dbe2</p></div></article>
+    </div>
+  </section>
+</div>
+</body>
+</html>
