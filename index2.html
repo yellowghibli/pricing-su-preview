@@ -110,7 +110,7 @@ a { color: inherit; text-decoration: none; }
 section { margin-bottom: var(--section-gap); }
 .section-title { text-align: left; max-width: 26ch; margin-bottom: var(--content-gap); }
 .section-title:has(+ .section-subtitle), .cta-final h2 { margin-bottom: var(--heading-gap); }
-.hero h1, .section-title, .cta-final h2, .pain-card h3, .ui-card h3, .feat-card h3, .term-card h4, .cons-item h4, .how-step h4, .clients-title, .client-card, details summary { text-wrap: balance; overflow-wrap: break-word; }
+.hero h1, .section-title, .cta-final h2, .pain-card h3, .ui-card h3, .feat-card h3, .term-card h4, .cons-item h4, .how-step h4, .block-title, details summary { text-wrap: balance; overflow-wrap: break-word; }
 .section-subtitle { color: var(--text-primary); text-align: left; max-width: 64ch; margin: 0 0 var(--content-gap); }
 .text-muted { color: var(--text-primary); }
 
@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6 { font: inherit; }
 .hero h1 { font: var(--type-display); }
 .section-title, .cta-final h2, .metric-num, .calc-total .price, .tl-year, .how-num, .term-card h4 .term-code { font: var(--type-heading); }
 .pain-card h3, .ui-card h3, .feat-card h3, .term-card h4,
-.cons-item h4, .how-step h4, .clients-title, .foot-brand,
+.cons-item h4, .how-step h4, .block-title, .foot-brand,
 details summary, .gallery-caption, .platform-data-panel > h3, .hero-ticket .price-label,
 .calc-row .val { font: var(--type-title); }
 .hero .sub { font: var(--type-subtitle); letter-spacing: normal; }
@@ -178,7 +178,7 @@ header.is-scrolled { box-shadow: 0 8px 28px rgb(23 35 70 / 8%); transform: trans
 
 /* Cards and steps */
 .pain-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); }
-.audience-grid, .feat-grid, .clients-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
+.audience-grid, .feat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
 .pain-card, .ui-card, .feat-card { border-radius: var(--radius-panel); padding: var(--card-padding); background: var(--surface-section); }
 .pain-card h3, .ui-card h3, .feat-card h3, .term-card h4 { margin-bottom: var(--space-2); }
 .pain-card p, .pain-card .now, .ui-card li, .feat-card p, .cons-item p, .how-step p, .term-card p { color: var(--text-primary); }
@@ -212,8 +212,12 @@ header.is-scrolled { box-shadow: 0 8px 28px rgb(23 35 70 / 8%); transform: trans
 .term-card:first-child p { color: inherit; }
 
 /* Clients */
-.clients-grid { margin: 0; }
-.client-card { padding: var(--card-padding); border-radius: var(--radius-panel); background: var(--surface-section); text-align: left; }
+/* Reviews */
+.reviews-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); margin: 0; }
+.review-card { display: flex; flex-direction: column; padding: var(--card-padding); border-radius: var(--radius-panel); background: var(--surface-section); text-align: left; }
+.review-card h3 { font: var(--type-subtitle); letter-spacing: normal; text-wrap: pretty; hyphens: none; overflow-wrap: normal; word-break: normal; margin-bottom: var(--space-2); }
+.review-card p { color: var(--text-primary); margin-bottom: var(--space-3); }
+.review-logo { align-self: flex-start; height: 48px; width: auto; max-width: 176px; object-fit: contain; margin-top: auto; }
 
 /* Calculator and comparison */
 .calc-wrap { margin: 0; padding: var(--card-padding); border-radius: var(--radius-panel); background: var(--surface-section); }
@@ -580,11 +584,6 @@ section { padding: var(--block-pad-top) 0 var(--block-pad-bottom); margin: 0; }
 .term-card h4 .term-code { display: block; color: var(--surface-accent); letter-spacing: var(--tracking-accent); margin-bottom: 24px; }
 .term-card:first-child .term-code { display: table; background: var(--surface-primary); color: var(--text-inverse); padding: 0 16px; border-radius: var(--radius-control); transform: rotate(-2deg); }
 .term-card p { color: var(--text-primary); }
-.clients-grid { gap: 0 24px; }
-.client-card { display: flex; align-items: center; gap: 16px; min-height: 0; padding: 22px 0; border-top: 1px solid var(--border-default); border-radius: 0; background: none; letter-spacing: normal; }
-.client-card > span:not(.client-logo-placeholder) { font: var(--type-title); letter-spacing: var(--tracking-accent); }
-.client-logo-placeholder { flex: 0 0 52px; width: 52px; height: 52px; border-radius: 50%; background: var(--surface-accent); }
-.client-card small { display: block; margin-top: 2px; font: var(--type-body); color: var(--text-secondary); letter-spacing: normal; }
 .calc-bg { padding: var(--panel-padding-y) 0; margin-top: 0; background: var(--surface-accent); color: #fff; }
 .calc-bg .section-title { max-width: none; }
 .calc-bg .section-subtitle { color: var(--text-inverse); }
@@ -634,7 +633,7 @@ section { padding: var(--block-pad-top) 0 var(--block-pad-bottom); margin: 0; }
 .tl-item:last-child .tl-year { color: #fff; }
 .tl-item:last-child .tl-desc { color: var(--text-inverse); }
 .platform-data-group h3,
-#how .metrics .clients-title { font: var(--type-subtitle); letter-spacing: normal; }
+#how .metrics .block-title { font: var(--type-subtitle); letter-spacing: normal; }
 .faq-section > .container { grid-template-columns: 1fr; gap: 48px; }
 .faq-section .section-title { max-width: none; margin-bottom: 0; }
 .faq-list { padding: 0; }
@@ -712,9 +711,8 @@ section .btn, .cta-actions .btn { min-height: 64px; padding: 12px 80px; font: va
   #demo { padding: var(--panel-padding-y) 0; }
 }
 :is(.section-title, .cta-final h2, .pain-card h3, .ui-card h3, .feat-card h3, .term-card h4,
-.cons-item h4, .how-step h4, .clients-title, details summary,
-.gallery-caption, .platform-data-panel > h3, .hero-ticket .price-label,
-.client-card > span:not(.client-logo-placeholder)) {
+.cons-item h4, .how-step h4, .block-title, details summary,
+.gallery-caption, .platform-data-panel > h3, .hero-ticket .price-label) {
   letter-spacing: var(--tracking-accent);
 }
 #economy .about-text { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
@@ -804,10 +802,10 @@ section .btn, .cta-actions .btn { min-height: 64px; padding: 12px 80px; font: va
 }
 #consequences .feature-heading h3 { margin: 0; }
 #consequences .feature-heroicon { display: block; width: 52px; height: 52px; color: var(--surface-accent); }
-#consequences .clients-title { margin-top: 64px; }
+#consequences .block-title { margin-top: 64px; }
 #consequences .domino-panel { margin-top: 64px; padding: 32px 0 48px; border-radius: var(--radius-panel); background: #f7f2e8; color: var(--surface-accent); }
 #consequences .domino-panel .section-title { background: linear-gradient(90deg, var(--surface-primary) 0%, var(--surface-accent) 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: var(--surface-primary); }
-#consequences .domino-panel .clients-title { margin: 48px 32px 24px; color: var(--surface-primary); }
+#consequences .domino-panel .block-title { margin: 48px 32px 24px; color: var(--surface-primary); }
 #consequences .domino-stage { overflow-x: auto; overflow-y: hidden; overscroll-behavior-inline: contain; }
 #consequences .domino-stage-inner { min-width: 960px; padding: 48px 0 24px; }
 #consequences .domino-grid { width: 88%; margin: 0 auto; gap: 48px; }
@@ -825,7 +823,7 @@ section .btn, .cta-actions .btn { min-height: 64px; padding: 12px 80px; font: va
   #consequences .domino-stage-inner { min-width: 0; width: 100%; padding: 32px 0 24px; }
   #consequences .domino-grid { width: 88%; gap: clamp(24px, 3.5vw, 48px); }
   #consequences .domino-panel .section-title { text-align: center; }
-  #consequences .domino-panel .clients-title { margin: 32px 0 0; text-align: center; }
+  #consequences .domino-panel .block-title { margin: 32px 0 0; text-align: center; }
 }
 .domino-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 32px 0 20px; }
 #how .how-layout { margin-top: 48px; }
@@ -838,7 +836,7 @@ section .btn, .cta-actions .btn { min-height: 64px; padding: 12px 80px; font: va
 }
 #how .metrics { width: 100%; margin-top: 0; padding: 0; overflow: visible; border-radius: 0; color: var(--text-primary); background: var(--surface-page); }
 #how .metrics > div { display: grid; grid-template-columns: var(--illus-circle-col) minmax(0, 1fr); column-gap: 16px; row-gap: 8px; align-items: center; }
-#how .metrics .clients-title { grid-column: 2; grid-row: 1; margin-bottom: 0; color: var(--text-primary); letter-spacing: normal; }
+#how .metrics .block-title { grid-column: 2; grid-row: 1; margin-bottom: 0; color: var(--text-primary); letter-spacing: normal; }
 #how .metrics-table { grid-column: 1 / -1; grid-row: 2; width: 100%; border-collapse: collapse; font: var(--type-body); color: var(--text-primary); }
 #how .metrics-table th,
 #how .metrics-table td { padding: 8px 0; text-align: left; border-bottom: 1px solid var(--border-default); }
@@ -1045,7 +1043,7 @@ footer .foot-col a:hover { color: var(--text-inverse); }
     background: #f7f2e8;
   }
   #consequences .domino-panel .section-title { text-align: center; }
-  #consequences .domino-panel .clients-title { margin: 32px 0 0; text-align: center; color: var(--surface-primary); }
+  #consequences .domino-panel .block-title { margin: 32px 0 0; text-align: center; color: var(--surface-primary); }
   #consequences .domino-stage { margin-inline: 0; padding-inline: 0; overflow: visible; }
   #consequences .domino-stage-inner {
     min-width: 0;
@@ -1083,7 +1081,7 @@ footer .foot-col a:hover { color: var(--text-inverse); }
   .hero-orbit-track { width: min(760px, 140vw); height: 340px; right: -180px; bottom: -40px; }
   .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; padding: 32px var(--card-padding); }
   .metric-num { white-space: normal; }
-  .pain-grid, .audience-grid, .feat-grid, .terms-cards, .clients-grid, .gallery-grid, .foot-grid {
+  .pain-grid, .audience-grid, .feat-grid, .terms-cards, .gallery-grid, .foot-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   #how .metrics > div { width: fit-content; max-width: 100%; }
@@ -1182,7 +1180,7 @@ footer .foot-col a:hover { color: var(--text-inverse); }
   .hero-cta { flex-direction: column; align-items: stretch; }
   .hero-cta .btn { max-width: none; width: 100%; }
   .metrics-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  .pain-grid, .audience-grid, .feat-grid, .terms-cards, .clients-grid, .how-grid, .gallery-grid, .foot-grid,
+  .pain-grid, .audience-grid, .feat-grid, .terms-cards, .reviews-grid, .how-grid, .gallery-grid, .foot-grid,
   #how .how-grid, #how .how-layout .how-grid, #how .how-showcase, #economy .about-text, .platform-data-groups, .about-grid {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1196,7 +1194,7 @@ footer .foot-col a:hover { color: var(--text-inverse); }
     background: #f7f2e8;
   }
   #consequences .domino-panel .section-title { text-align: center; }
-  #consequences .domino-panel .clients-title { margin: 24px 0 0; text-align: center; }
+  #consequences .domino-panel .block-title { margin: 24px 0 0; text-align: center; }
   #consequences .domino-stage { margin-inline: 0; padding-inline: 0; overflow: visible; }
   #consequences .domino-stage-inner { width: 100%; padding: 12px 0; container-type: inline-size; container-name: domino; }
   #consequences .domino-grid { width: 100%; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
@@ -1514,7 +1512,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div>
-        <p class="clients-title modal-caption">Мгновенное обнаружение нарушений останавливает цепную реакцию на старте</p>
+        <p class="block-title modal-caption">Мгновенное обнаружение нарушений останавливает цепную реакцию на старте</p>
       </div>
     </div>
 
@@ -1567,7 +1565,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="metrics" aria-label="Скорость обработки отчётов">
           <div>
             <div class="metrics-figure-slot"><img class="metrics-figure" src="assets/report-speed-realistic.jpg" alt="" aria-hidden="true"></div>
-            <h3 class="clients-title">Скорость обработки отчётов</h3>
+            <h3 class="block-title">Скорость обработки отчётов</h3>
             <table class="metrics-table">
               <thead>
                 <tr><th scope="col">Позиций</th><th scope="col">Время</th></tr>
@@ -1586,17 +1584,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- NICHES -->
+<!-- REVIEWS -->
 <section id="industries">
   <div class="container">
-    <h2 class="section-title">С кем мы работаем</h2>
-    <div class="clients-grid">
-      <div class="client-card"><span class="client-logo-placeholder" aria-hidden="true"></span><span>ООО «Сэльвин»</span></div>
-      <div class="client-card"><span class="client-logo-placeholder" aria-hidden="true"></span><span>ТЕХНОНИКОЛЬ<small>производитель стройматериалов</small></span></div>
-      <div class="client-card"><span class="client-logo-placeholder" aria-hidden="true"></span><span>KUDO<small>производитель автохимии</small></span></div>
-      <div class="client-card"><span class="client-logo-placeholder" aria-hidden="true"></span><span>Дистрибьютор Bosch</span></div>
-      <div class="client-card"><span class="client-logo-placeholder" aria-hidden="true"></span><span>Поставщик Grohe<small>сантехника</small></span></div>
-      <div class="client-card"><span class="client-logo-placeholder" aria-hidden="true"></span><span>Официальный импортер<small>итальянской сантехники</small></span></div>
+    <h2 class="section-title">Что говорят клиенты</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <h3>Мегаудобный сервис, который экономит моё время на изучение ценовой политики других компаний!</h3>
+        <p>Для мониторинга и анализа цен конкурентов уже второй год использую сервис Pricing.su. Мегаудобный сервис, который экономит моё время на изучение ценовой политики других компаний, которые также, как и я, занимаются продажами смартфонов. Вычитал про Pricing.su на каком-то форуме, уже и не вспомню, где именно. Сервис понравился гибкой настройкой параметров, что позволяет проводить действительно эффективный контроль цен (например, я изучаю статистику только по своему региону). Рекомендую к использованию, это годный продукт!</p>
+        <img class="review-logo" src="assets/review-crmindex.svg" alt="CRMIndex" loading="lazy">
+      </div>
+      <div class="review-card">
+        <h3>Спасибо, что экономите моё время и облегчаете работу!</h3>
+        <p>Хочу поблагодарить сотрудников вашего сервиса за профессионализм. Особенно хотелось отметить Кирилла, который мне помогал освоиться вначале и помогал советами и примерами, консультировал, ответил на все мои вопросы. Желаю вашей компании процветания и успехов во всех ваших начинаниях! Каждый год добавляются новые полезные функции по пожеланиям клиентов — это сейчас редкость среди разработчиков, которые прислушиваются к потребителю продукта. Спасибо, что экономите моё время и облегчаете работу!</p>
+        <img class="review-logo" src="assets/review-atlant.webp" alt="Интернет-магазин «Атлант»" loading="lazy">
+      </div>
+      <div class="review-card">
+        <h3>Это единственный сервис, результаты которого абсолютно точны!</h3>
+        <p>Долго выбирали подобный сервис. Ввиду специфики продукции (наименования) в отчёты попадало очень много лишнего. Это единственный сервис, результаты которого абсолютно точны!</p>
+        <img class="review-logo" src="assets/review-starpack.svg" alt="StartPack" loading="lazy">
+      </div>
+      <div class="review-card">
+        <h3>Лучший анализ цен на рынке!</h3>
+        <p>Пользуемся сайтом достаточно давно. У нас интернет-магазин с 15 тыс. товарами на сайте. Задача стояла определиться с моделью ценообразования и поддерживать конкурентные цены. При анализе рынка мы нашли сервис Pricing.su. Все остальные предложения были слишком дорогостоящие, или нужно было время на доработку. В сервисе очень понравилась техподдержка — достаточно быстро отвечала и помогала разбираться, плюс интуитивно понятный интерфейс. В итоге цены мы получили, провели анализ, и теперь раз в месяц проводим подобный анализ, чтобы не отставать от рынка.</p>
+        <img class="review-logo" src="assets/review-itbox.webp" alt="ITBox" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -1612,7 +1624,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <form class="form-wrap lead-form" id="leadForm" onsubmit="return sendLead(event)">
         <input type="text" id="lf_name" placeholder="Ваше имя" required>
-        <input type="email" id="lf_email" placeholder="Корпоративный email" required>
+        <input type="email" id="lf_email" placeholder="Email" required>
         <input type="tel" id="lf_phone" placeholder="Телефон">
         <label class="lead-consent">
           <input type="checkbox" id="lf_consent" required>
