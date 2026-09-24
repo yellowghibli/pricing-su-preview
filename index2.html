@@ -212,6 +212,17 @@ header.is-scrolled { box-shadow: 0 8px 28px rgb(23 35 70 / 8%); transform: trans
 .term-card:first-child p { color: inherit; }
 
 /* Clients */
+.clients-logo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); list-style: none; margin: 0; padding: 0; }
+.clients-logo-item { display: flex; align-items: center; justify-content: center; min-height: 112px; padding: var(--card-padding); border-radius: var(--radius-panel); background: #fff; overflow: visible; }
+.clients-logo-mark { display: flex; align-items: center; justify-content: center; width: 176px; height: 48px; flex-shrink: 0; overflow: visible; }
+.clients-logo-mark img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; transform: scale(var(--client-logo-scale, 1)); transform-origin: center; }
+.clients-logo-mark--sellwin { --client-logo-scale: 1.23; }
+.clients-logo-mark--legion { --client-logo-scale: 3.16; }
+.clients-logo-mark--rimex { --client-logo-scale: 1.68; }
+.clients-logo-mark--karmy { --client-logo-scale: 2.58; }
+.clients-logo-mark--forza { --client-logo-scale: 0.87; }
+.clients-logo-mark--hunterpet { --client-logo-scale: 1.43; }
+
 /* Reviews */
 .reviews-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); margin: 0; }
 .review-card { display: flex; flex-direction: column; padding: var(--card-padding); border-radius: var(--radius-panel); background: var(--surface-section); text-align: left; }
@@ -374,15 +385,24 @@ section { padding: var(--block-pad-top) 0 var(--block-pad-bottom); margin: 0; }
 /* Same surface: one gap between blocks, padding at junctions collapses. */
 #economy + #audience,
 #audience + #platforms,
-#how + #industries,
 #industries + #lead {
   margin-top: var(--block-gap);
   padding-top: 0;
 }
 #economy:has(+ #audience),
 #audience:has(+ #platforms),
-#how:has(+ #industries),
 #industries:has(+ #lead) { padding-bottom: 0; }
+#how + #clients,
+#clients + #industries,
+#terms + #clients {
+  margin-top: var(--block-gap);
+  padding-top: 0;
+}
+#how:has(+ #clients),
+#clients:has(+ #industries),
+#terms:has(+ #clients) {
+  padding-bottom: 0;
+}
 .section-title { max-width: none; letter-spacing: var(--tracking-accent); }
 .section-subtitle { max-width: 60ch; color: var(--text-primary); margin-bottom: 48px; }
 .hero {
@@ -516,6 +536,8 @@ section { padding: var(--block-pad-top) 0 var(--block-pad-bottom); margin: 0; }
 .pain-card p, .pain-card .now { font: var(--type-body); }
 .pain-card .now { color: var(--text-secondary); }
 .audience-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+.clients-logo-grid,
+.reviews-grid { gap: 24px; }
 .ui-card, .ui-card:nth-child(2), .ui-card:nth-child(3) { padding: var(--card-padding); color: var(--text-primary); background: var(--surface-secondary); }
 :is(#audience, #consequences) .audience-grid > .ui-card {
   background-image: linear-gradient(102deg, var(--aud-tone-a) 0%, var(--aud-tone-b) 33.33%, var(--aud-tone-c) 66.66%, var(--aud-tone-d) 100%);
@@ -578,6 +600,7 @@ section { padding: var(--block-pad-top) 0 var(--block-pad-bottom); margin: 0; }
 .feat-card:first-child p { color: var(--text-inverse); }
 .feat-card:nth-child(5) p { color: var(--text-inverse); }
 .terms .section-title { max-width: none; }
+.clients .section-title { max-width: none; }
 .terms-grid { display: block; }
 .terms-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .term-card, .term-card:first-child { padding: 0; background: none; color: var(--text-primary); }
@@ -1084,6 +1107,9 @@ footer .foot-col a:hover { color: var(--text-inverse); }
   .pain-grid, .audience-grid, .feat-grid, .terms-cards, .gallery-grid, .foot-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .clients-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .clients-logo-item { min-width: 0; overflow: hidden; }
+  .clients-logo-mark { width: min(100%, 176px); max-width: 100%; }
   #how .metrics > div { width: fit-content; max-width: 100%; }
   #how .metrics-table { width: auto; max-width: 36ch; }
   .feat-card:first-child, .feat-card:nth-child(5), .feat-card:nth-child(8) { grid-column: span 2; }
@@ -1111,6 +1137,9 @@ footer .foot-col a:hover { color: var(--text-inverse); }
     margin-inline: calc(-1 * var(--page-gutter));
     padding-inline: var(--page-gutter);
   }
+}
+@media (min-width: 768px) and (max-width: 959px) {
+  .reviews-grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 767px) {
   :root {
@@ -1180,7 +1209,7 @@ footer .foot-col a:hover { color: var(--text-inverse); }
   .hero-cta { flex-direction: column; align-items: stretch; }
   .hero-cta .btn { max-width: none; width: 100%; }
   .metrics-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  .pain-grid, .audience-grid, .feat-grid, .terms-cards, .reviews-grid, .how-grid, .gallery-grid, .foot-grid,
+  .pain-grid, .audience-grid, .feat-grid, .terms-cards, .reviews-grid, .clients-logo-grid, .how-grid, .gallery-grid, .foot-grid,
   #how .how-grid, #how .how-layout .how-grid, #how .how-showcase, #economy .about-text, .platform-data-groups, .about-grid {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1581,6 +1610,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients" id="clients">
+  <div class="container">
+    <h2 class="section-title">С кем мы работаем</h2>
+    <ul class="clients-logo-grid" aria-label="Клиенты Pricing.su">
+      <li class="clients-logo-item"><span class="clients-logo-mark clients-logo-mark--sellwin"><img src="assets/client-logo-sellwin.svg" alt="Sellwin" width="176" height="48" loading="eager"></span></li>
+      <li class="clients-logo-item"><span class="clients-logo-mark clients-logo-mark--legion"><img src="assets/client-logo-legion.svg" alt="Легион" width="176" height="48" loading="eager"></span></li>
+      <li class="clients-logo-item"><span class="clients-logo-mark clients-logo-mark--rimex"><img src="assets/client-logo-rimex.svg" alt="Римекс" width="176" height="48" loading="eager"></span></li>
+      <li class="clients-logo-item"><span class="clients-logo-mark clients-logo-mark--karmy"><img src="assets/client-logo-karmy.svg" alt="Karmy" width="176" height="48" loading="eager"></span></li>
+      <li class="clients-logo-item"><span class="clients-logo-mark clients-logo-mark--forza"><img src="assets/client-logo-forza.svg" alt="Forza" width="176" height="48" loading="eager"></span></li>
+      <li class="clients-logo-item"><span class="clients-logo-mark clients-logo-mark--hunterpet"><img src="assets/client-logo-hunterpet.svg" alt="HunterPet" width="176" height="48" loading="eager"></span></li>
+    </ul>
   </div>
 </section>
 
