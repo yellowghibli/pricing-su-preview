@@ -139,7 +139,11 @@ header { position: sticky; top: 0; z-index: 100; background: var(--surface-page)
 header.is-scrolled { box-shadow: 0 8px 28px rgb(23 35 70 / 8%); transform: translateZ(0); }
 .header-scroll-sentinel { height: 1px; pointer-events: none; visibility: hidden; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; padding-top: var(--space-2); padding-bottom: var(--space-2); gap: var(--space-2); }
-.logo { display: flex; align-items: center; }
+.logo { display: flex; align-items: center; gap: 0; }
+.logo-mark { display: block; width: 48px; height: 48px; flex: 0 0 auto; color: var(--surface-accent); overflow: visible; }
+.logo-wordmark { position: relative; margin-left: -20px; transform: translateY(6px); font-size: 28px; line-height: 36px; letter-spacing: .015em; text-transform: uppercase; white-space: nowrap; }
+.foot-brand .logo-mark { color: #8faaff; }
+.foot-brand:has(.logo-mark) { gap: 0; }
 .header-contacts { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
 .header-contacts .email { color: var(--text-primary); }
 .header-contacts .phone { font: var(--type-subtitle); letter-spacing: normal; color: var(--text-primary); }
@@ -160,8 +164,6 @@ header.is-scrolled { box-shadow: 0 8px 28px rgb(23 35 70 / 8%); transform: trans
   display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1;
   background: var(--surface-section); border: 1px solid var(--border-default); border-radius: 0;
 }
-.logo img { width: 48px; }
-
 /* Hero and metrics */
 .hero { padding-top: var(--hero-top); margin-bottom: var(--hero-bottom); }
 .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--grid-gap); align-items: center; }
@@ -297,7 +299,7 @@ footer { padding: var(--space-5) 0 var(--space-3); border-top: 1px solid var(--b
 .foot-col h4 { margin-bottom: var(--space-2); }
 .foot-col a, .foot-col p { color: var(--text-primary); display: block; }
 .foot-col a + a { margin-top: var(--space-1); }
-.foot-brand { margin-bottom: var(--space-2); }
+.foot-brand { display: flex; align-items: center; gap: 10px; margin-bottom: var(--space-2); }
 .foot-bottom { padding-top: var(--space-3); }
 
 /* Poster / price-label visual layer. Desktop composition: 1440px. */
@@ -1173,7 +1175,9 @@ footer .foot-col a:hover { color: var(--text-inverse); }
     padding: 12px 0;
     gap: 10px 12px;
   }
-  .logo { grid-column: 1; grid-row: 1; white-space: nowrap; }
+  .logo { grid-column: 1; grid-row: 1; gap: 0; white-space: nowrap; font-size: 26px; line-height: 32px; }
+  .logo .logo-mark { width: 40px; height: 40px; }
+  .logo .logo-wordmark { margin-left: -18px; transform: translateY(4px); font-size: 23px; line-height: 30px; }
   .header-contacts { display: contents; flex: unset; min-width: 0; }
   .header-contacts .phone {
     grid-column: 1;
@@ -1193,7 +1197,7 @@ footer .foot-col a:hover { color: var(--text-inverse); }
     text-overflow: ellipsis;
   }
   .header-actions { grid-column: 2; grid-row: 1; margin-left: 0; gap: 8px; }
-  .header-contacts .btn { min-height: 44px; padding: 10px 14px; font-size: 14px; line-height: 20px; }
+  .header-contacts .btn { min-height: 44px; padding: 10px; font-size: 14px; line-height: 20px; }
   .hero { padding: 32px 0 40px; }
   .hero-grid > div:first-child { gap: 24px; text-align: left; }
   .hero h1 { font: 700 40px/44px var(--font-family); }
@@ -1275,6 +1279,13 @@ footer .foot-col a:hover { color: var(--text-inverse); }
   .manager-card { align-items: flex-start; }
   .foot-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
 }
+@media (max-width: 389px) {
+  .header-inner { grid-template-rows: auto auto auto auto; }
+  .logo { grid-column: 1 / -1; }
+  .header-actions { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; }
+  .header-contacts .phone { grid-row: 3; }
+  .header-contacts .email { grid-row: 4; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn { transition: none; }
@@ -1291,13 +1302,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HEADER -->
 <header>
   <div class="container header-inner">
-    <a href="#" class="logo">Pricing.su</a>
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="100 80 1080 1140" aria-hidden="true" focusable="false">
+        <use href="assets/pricing-label-rocket-flourish.svg#pricing-label-flourish"/>
+      </svg>
+      <span class="logo-wordmark">Pricing.su</span>
+    </a>
     <div class="header-contacts">
       <a href="tel:+79585707532" class="phone">+7 (958) 570 75 32</a>
       <a href="mailto:support@pricing.su" class="email">support@pricing.su</a>
       <div class="header-actions">
-        <a href="https://panel.pricing.su/login" class="btn btn-outline">Вход</a>
-        <a href="https://panel.pricing.su/login" class="btn btn-primary">Регистрация</a>
+        <a href="login.html" class="btn btn-outline">Вход</a>
+        <a href="register.html" class="btn btn-primary">Регистрация</a>
       </div>
     </div>
   </div>
@@ -1327,7 +1343,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="ui-badge ui-badge--tone-3">защищаем маржинальность дилерской сети</span>
         </div>
         <div class="hero-cta">
-          <a href="https://panel.pricing.su/login" class="btn btn-cta btn-lg" target="_blank">Демо-доступ</a>
+          <a href="login.html" class="btn btn-cta btn-lg">Демо-доступ</a>
         </div>
       </div>
       <div class="hero-media">
@@ -1716,7 +1732,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="demo-head">
         <h2>Посмотрите Pricing.su в работе</h2>
         <div class="cta-actions">
-          <a href="https://panel.pricing.su/login" class="btn btn-white btn-lg">Открыть демо в 1 клик</a>
+          <a href="login.html" class="btn btn-white btn-lg">Открыть демо в 1 клик</a>
         </div>
       </div>
       <div class="manager-card">
@@ -1732,13 +1748,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="foot-grid">
       <div class="foot-col">
-        <div class="foot-brand">Pricing.su</div>
+        <div class="foot-brand">
+          <svg class="logo-mark" viewBox="100 80 1080 1140" aria-hidden="true" focusable="false">
+            <use href="assets/pricing-label-rocket-flourish.svg#pricing-label-flourish"/>
+          </svg>
+          <span class="logo-wordmark">Pricing.su</span>
+        </div>
         <p class="foot-desc">Автоматический мониторинг цен, контроль РРЦ и репрайсинг для дистрибьюторов, дилеров и поставщиков маркетплейсов. На рынке с 2015 года.</p>
       </div>
       <div class="foot-col">
         <h4>Продукт</h4>
-        <a href="https://panel.pricing.su/login">Регистрация</a>
-        <a href="https://panel.pricing.su/login">Вход в кабинет</a>
+        <a href="register.html">Регистрация</a>
+        <a href="login.html">Вход в кабинет</a>
         <a href="https://pricing.su/bepaid.html">Оплата и реквизиты</a>
       </div>
       <div class="foot-col">
