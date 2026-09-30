@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 1320">
+  <title>Pricing.su</title>
+  <path d="M270 150H520Q575 150 620 195L1145 720Q1195 770 1145 820L820 1145Q770 1195 720 1145L195 620Q150 575 150 520V270Q150 150 270 150Z"
+        fill="none" stroke="#173fc4" stroke-width="72" stroke-linecap="round" stroke-linejoin="round"/>
+  <path id="favicon-fin" d="M345 900L545 1220Q570 1260 610 1238L655 1200"
+        fill="none" stroke="#173fc4" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/>
+  <use href="#favicon-fin" transform="matrix(0 1 1 0 0 0)"/>
+  <g fill="#173fc4" stroke="#173fc4" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M486 298C457 272 415 275 382 292C328 320 305 376 319 433C337 509 415 550 489 515C518 501 531 477 530 455C506 477 476 495 443 490C399 486 370 458 364 416C360 374 385 336 422 327C446 320 465 326 483 321C494 317 497 308 486 298Z"/>
+    <path d="M433 430C648 342 865 275 1070 254C1057 270 1032 291 1007 303C982 316 988 335 1012 333C1074 328 1128 278 1133 243C1138 220 1115 210 1082 211C853 220 617 300 425 386C402 396 402 421 433 430Z"/>
+  </g>
+</svg>

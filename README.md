@@ -6,7 +6,7 @@
 - https://yellowghibli.github.io/pricing-su-preview/index2.html
 - https://yellowghibli.github.io/pricing-su-preview/styleguide.html
 
-## Авторизация (макеты)
+## Авторизация
 
 - https://yellowghibli.github.io/pricing-su-preview/login.html
 - https://yellowghibli.github.io/pricing-su-preview/register.html
